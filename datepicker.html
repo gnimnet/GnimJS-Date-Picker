@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Date Picker</title>
+        <link rel="stylesheet" href="datepicker.css" type="text/css"/>
+        <style type="text/css">
+            * {margin:0;padding:0;}
+            body{padding:10px;}
+            h1{font-size:22px;margin:15px 0 5px;}
+            h2{font-size:20px;margin:13px 0 5px;}
+            h3{font-size:18px;margin:11px 0 5px;}
+            h4{font-size:16px;margin:9px 0 5px;}
+            h5{font-size:14px;margin:7px 0 5px;}
+            h6{font-size:12px;margin:5px 0 5px;}
+            p,.line{display:block;padding:5px;}
+            p{line-height:150%;}
+            button{padding:3px;margin:5px;}
+
+            .form-date-link{display:inline;position:relative;}
+            .form-date-picker{position:absolute;display:inline-block;z-index:1;left:0;top:0;}
+            .content-r .form-date-picker{left:auto;right:0;}
+        </style>
+    </head>
+    <body>
+        <div id="csstest">
+            <h3>CSS测试</h3>
+            <div class="picker-con">
+                <div class="picker-title">
+                    <a class="picker-title-prev" href="javascript:void(0);">上月</a>
+                    <a class="picker-title-next" href="javascript:void(0);">下月</a>
+                    <div class="picker-title-text">2011年8月</div>
+                </div>
+                <div class="picker-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>日</th>
+                                <th>一</th>
+                                <th>二</th>
+                                <th>三</th>
+                                <th>四</th>
+                                <th>五</th>
+                                <th>六</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td><a href="javascript:void(0);">1</a></td>
+                                <td><a href="javascript:void(0);">2</a></td>
+                                <td><a href="javascript:void(0);">3</a></td>
+                                <td><a href="javascript:void(0);">4</a></td>
+                                <td><a href="javascript:void(0);">5</a></td>
+                                <td><a href="javascript:void(0);">6</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="javascript:void(0);">7</a></td>
+                                <td><a href="javascript:void(0);">8</a></td>
+                                <td><a href="javascript:void(0);">9</a></td>
+                                <td><a href="javascript:void(0);">10</a></td>
+                                <td><a href="javascript:void(0);">11</a></td>
+                                <td><a href="javascript:void(0);">12</a></td>
+                                <td><a href="javascript:void(0);" class="picker-today">13</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="javascript:void(0);">14</a></td>
+                                <td><a href="javascript:void(0);">15</a></td>
+                                <td><a href="javascript:void(0);" class="picker-select">16</a></td>
+                                <td><a href="javascript:void(0);">17</a></td>
+                                <td><a href="javascript:void(0);">18</a></td>
+                                <td><a href="javascript:void(0);">19</a></td>
+                                <td><a href="javascript:void(0);">20</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="javascript:void(0);">21</a></td>
+                                <td><a href="javascript:void(0);">22</a></td>
+                                <td><a href="javascript:void(0);">23</a></td>
+                                <td><a href="javascript:void(0);">24</a></td>
+                                <td><a href="javascript:void(0);">25</a></td>
+                                <td><a href="javascript:void(0);">26</a></td>
+                                <td><a href="javascript:void(0);">27</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="javascript:void(0);">28</a></td>
+                                <td><a href="javascript:void(0);">29</a></td>
+                                <td><a href="javascript:void(0);">30</a></td>
+                                <td><a href="javascript:void(0);">31</a></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="button button-create">create();</button>
+            <button class="button button-get">get();</button>
+            <button class="button button-set" >set();</button>
+            <button class="button button-show">show();</button>
+            <button class="button button-showsel">showsel();</button>
+            <button class="button button-remove">remove();</button>
+        </div>
+        <div id="picker">
+            <h3>组件演示</h3>
+        </div>
+        <div id="picker2">
+            <h3>组件演示2</h3>
+            <div class="line date"><label class="label">日期：</label><input class="input" disabled="disabled" /><div class="form-date-link"><a href="javascript:select();">选择</a><div class="form-date-picker"></div></div></div>
+        </div>
+        <script src="https://raw.github.com/GnimNet/GnimJS/master/full/gnim.js"></script>
+        <script src="datepicker-min.js"></script>
+        <script>
+            
+            var picker;
+            $('.button-create').click(function(){
+                picker=new Datepicker(function(d){
+                    alert(d);
+                },'yy-m-d ww');
+                picker.appendTo('#picker');
+            });
+            $('.button-get').click(function(){
+                alert(picker.get());
+            });
+            $('.button-set').click(function(){
+                picker.set({
+                    y:2011,
+                    m:8,
+                    d:20
+                });
+            });
+            $('.button-show').click(function(){
+                picker.show({
+                    y:1988,
+                    m:1
+                });
+            });
+            $('.button-showsel').click(function(){
+                picker.show();
+            });
+            $('.button-remove').click(function(){
+                picker.remove();
+            });
+
+            $('body').click(function(){
+                removePicker();
+            });
+
+            var p=null;
+            function removePicker(){
+                if(p){
+                    p.remove();
+                    p=null;
+                }
+            }
+            function select(){
+                p=new Datepicker(function(d){
+                    $('.date .input')[0].value=d;
+                    removePicker();
+                },'yyyy-mm-dd','2011-01-01');
+                p.noBubble().appendTo('.date .form-date-picker');
+            }
+
+        </script>
+    </body>
+</html>

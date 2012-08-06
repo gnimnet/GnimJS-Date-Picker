@@ -1,0 +1,42 @@
+/*
+ * This CSS file for Date Picker JavaScript component
+ * this component works for GnimJS
+ * Write by Ming
+ * Date 2012.04.22
+ */
+
+.picker-con{
+    font-size:12px;
+    font-family:"Microsoft YaHei",SimHei,arial,sans-serif;
+    color:#444;
+    width:220px;
+    text-align:center;
+    background:#fff;
+    padding:5px;
+    border:#000 1px solid;
+}
+.picker-con a,
+.picker-con a:hover{color:#333;}
+.picker-title{
+    padding:5px;
+    position:relative;
+    height:20px;
+    border-bottom:#000 1px solid;
+}
+.picker-title-text{font-weight:bold;}
+.picker-title-prev,
+.picker-title-next{position:absolute;top:7px;display:block;}
+.picker-title-prev{left:7px;}
+.picker-title-next{right:7px;}
+.picker-title-text{font-size: 14px;margin:0 35px;}
+.picker-title-text em{font-style:normal;color:#f29438;}
+.picker-content{margin:0 0 5px;}
+.picker-content table{border-collapse:collapse;width:100%;}
+.picker-content tr{padding:2px;}
+.picker-content th{padding:2px 5px;font-weight:bold;}
+.picker-content td{padding:2px 5px;}
+.picker-content a{background:#f7f7f7;text-decoration:none;display:block;width:100%;height:100%;border:#d7d7d7 1px solid;}
+.picker-content a:hover{border:#a7a7a7 1px solid;font-weight:bold;}
+.picker-content .picker-today{border:#676767 1px solid;}
+.picker-content .picker-select{background:#fff;border:#676767 1px solid;color:#000;font-weight:bold;}
+.picker-content .picker-select:hover{border:#62605f 1px solid;color:#000;}
