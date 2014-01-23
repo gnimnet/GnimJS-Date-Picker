@@ -92,15 +92,13 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
+                </div>            </div>
         </div>
         <div>
             <button class="button button-create">create();</button>
             <button class="button button-get">get();</button>
-            <button class="button button-set" >set();</button>
-            <button class="button button-show">show();</button>
-            <button class="button button-showsel">showsel();</button>
+            <button class="button button-set1" >set({DATE},true);</button>
+            <button class="button button-set2" >set({DATE},false);</button>
             <button class="button button-remove">remove();</button>
         </div>
         <div id="picker">
@@ -110,57 +108,59 @@
             <h3>组件演示2</h3>
             <div class="line date"><label class="label">日期：</label><input class="input" disabled="disabled" /><div class="form-date-link"><a href="javascript:select();">选择</a><div class="form-date-picker"></div></div></div>
         </div>
-        <script src="https://raw.github.com/gnimnet/GnimJS/master/full/gnim.js"></script>
-        <script src="datepicker-min.js"></script>
+        <script src="http://gnim.net/files/gnimjs/min/gnim-min.js"></script>
+        <script src="datepicker.js"></script>
         <script>
-            
+
             var picker;
-            $('.button-create').click(function(){
-                picker=new Datepicker(function(d){
+            $('.button-create').click(function() {
+                picker = new Datepicker(function(d) {
                     alert(d);
-                },'yy-m-d ww');
+                }, 'yyyy-MM-dd');
                 picker.appendTo('#picker');
             });
-            $('.button-get').click(function(){
+            $('.button-get').click(function() {
                 alert(picker.get());
             });
-            $('.button-set').click(function(){
+            $('.button-set1').click(function() {
                 picker.set({
-                    y:2011,
-                    m:8,
-                    d:20
+                    year: 2011,
+                    month: 8,
+                    date: 20
+                }, true);
+            });
+            $('.button-set2').click(function() {
+                picker.set({
+                    year: 2011,
+                    month: 8,
+                    date: 10
                 });
             });
-            $('.button-show').click(function(){
-                picker.show({
-                    y:1988,
-                    m:1
-                });
-            });
-            $('.button-showsel').click(function(){
-                picker.show();
-            });
-            $('.button-remove').click(function(){
+            $('.button-remove').click(function() {
                 picker.remove();
             });
 
-            $('body').click(function(){
+            $('body').click(function() {
                 removePicker();
             });
 
-            var p=null;
-            function removePicker(){
-                if(p){
+            var p = null;
+            function removePicker() {
+                if (p) {
                     p.remove();
-                    p=null;
+                    p = null;
                 }
             }
-            function select(){
-                p=new Datepicker(function(d){
-                    $('.date .input')[0].value=d;
+            function select() {
+                var dateInput = $('.date .input')[0];
+                p = new Datepicker(function(d) {
+                    dateInput.value = d;
                     removePicker();
-                },'yyyy-mm-dd','2011-01-01');
-                p.noBubble().appendTo('.date .form-date-picker');
+                }, 'yyyy-MM-dd', dateInput.value);
+                p.$dom.click(function(e) {
+                    $.noBubble(e);
+                });
+                p.appendTo('.date .form-date-picker');
             }
 
         </script>

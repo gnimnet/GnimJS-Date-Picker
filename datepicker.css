@@ -2,7 +2,7 @@
  * This CSS file for Date Picker JavaScript component
  * this component works for GnimJS
  * Write by Ming
- * Date 2012.04.22
+ * Date 2014.01.23
  */
 
 .picker-con{
@@ -30,7 +30,7 @@
 .picker-title-next{right:7px;}
 .picker-title-text{font-size: 14px;margin:0 35px;}
 .picker-title-text em{font-style:normal;color:#f29438;}
-.picker-content{margin:0 0 5px;}
+.picker-content{margin:5px 0;}
 .picker-content table{border-collapse:collapse;width:100%;}
 .picker-content tr{padding:2px;}
 .picker-content th{padding:2px 5px;font-weight:bold;}
@@ -40,3 +40,6 @@
 .picker-content .picker-today{border:#676767 1px solid;}
 .picker-content .picker-select{background:#fff;border:#676767 1px solid;color:#000;font-weight:bold;}
 .picker-content .picker-select:hover{border:#62605f 1px solid;color:#000;}
+.picker-buttons{border-top:#000 1px solid;padding:5px 0;}
+.picker-button{display:inline-block;width:25%;height:20px;line-height:20px;text-align:center;}
+.picker-hide{display:none;}
